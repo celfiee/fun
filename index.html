@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الینا دوست دارم ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            animation: backgroundAnimation 10s infinite alternate ease-in-out;
+        }
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(135deg, #ffb6c1, #ff69b4); }
+            50% { background: linear-gradient(135deg, #ff9a9e, #fad0c4); }
+            100% { background: linear-gradient(135deg, #ff758c, #ff7eb3); }
+        }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+            animation: float 2s ease-out forwards;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-100px) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <audio id="heartSound1" src="https://www.fesliyanstudios.com/play-mp3/349"></audio>
+    <audio id="heartSound2" src="https://www.fesliyanstudios.com/play-mp3/350"></audio>
+    <audio id="heartSound3" src="https://www.fesliyanstudios.com/play-mp3/351"></audio>
+    <audio id="heartSound4" src="https://www.fesliyanstudios.com/play-mp3/352"></audio>
+    
+    <script>
+        let messages = [
+            "الینا عزیزم خیلی دوستت دارم ❤️",
+            "قلب من فقط برای تو می‌تپه 💖",
+            "تو دنیای منی، همیشه کنارم بمون 😘",
+            "زندگیم بدون تو هیچ معنی نداره ❤️‍🔥"
+        ];
+        let sounds = ["heartSound1", "heartSound2", "heartSound3", "heartSound4"];
+        
+        document.body.addEventListener('click', function(event) {
+            let heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️ ' + messages[Math.floor(Math.random() * messages.length)];
+            document.body.appendChild(heart);
+            
+            let x = event.clientX;
+            let y = event.clientY;
+            
+            heart.style.left = x + 'px';
+            heart.style.top = y + 'px';
+            
+         
+            setTimeout(() => {
+                heart.remove();
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
